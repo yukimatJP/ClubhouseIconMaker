@@ -42,7 +42,7 @@ var app = new Vue({
     loadDefault() {
       this.drawLoadingImage();
       this.userImgSrc = "img/sample/deer.jpg";
-      $("overlay-text").value = "👉 Click me!";
+      $("overlay-text").value = "🎉 Click me!";
       setTimeout(this.drawImage, 1000);
     },
     drawLoadingImage() {
@@ -99,7 +99,7 @@ var app = new Vue({
       ctx.textBaseline = 'bottom';
       ctx.textAlign = 'center';
       var x = (this.canvas.width / 2);
-      var y = (this.canvas.height * 0.9);
+      var y = (this.canvas.height * 0.85);
       ctx.strokeText(text, x, y);
       ctx.fillText(text, x, y);
       this.preview.src = this.canvas.toDataURL();

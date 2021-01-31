@@ -56,8 +56,7 @@ section {
       z-index: 0;
       background: white;
     }
-    &:after,
-    img {
+    &:after, img, canvas {
       position: absolute;
       top: 1%;
       left: 1%;
