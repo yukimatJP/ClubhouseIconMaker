@@ -1,9 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Clubhouse Icon Maker</title>
+  <meta charset="utf-8">
+  <title>👋 Clubhouse Icon Maker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=0.1">
 </head>
 <body>
-<h1>Clubhouse Icon Maker</h1>
+<div id="main" class="main">
+  <header>
+    <h1>👋 Clubhouse Icon Maker</h1>
+    <small>v0.1</small>
+  </header>
+  <section>
+    <div class="preview-container" id="preview-container">
+      <div class="icon-mask"></div>
+      <canvas id="preview"></canvas>
+    </div>
+  </section>
+  <footer>
+    &copy; yukimat.jp
+  </footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+<script type="text/javascript" src="js/chim.js"></script>
 </body>
 </html>

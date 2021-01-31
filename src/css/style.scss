@@ -1,0 +1,68 @@
+*,*::before,*::after{box-sizing:border-box}body,h1,h2,h3,h4,p,figure,blockquote,dl,dd{margin:0}ul[role="list"],ol[role="list"]{list-style:none}html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){text-decoration-skip-ink:auto}img,picture{max-width:100%;display:block}input,button,textarea,select{font:inherit}@media(prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+
+html, body {
+  font-family: 'Nunito', sans-serif;
+  color: #333333;
+  background: #F1EFE5;
+}
+
+div.main {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+header {
+  padding: 40px 20px;
+  h1 {
+    font-size: 1.4em;
+  }
+  small {
+    font-size: 0.8em;
+  }
+}
+
+section {
+  div.preview-container {
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+    overflow: hidden;
+    &:before {
+      content: "";
+      display: block;
+      padding-top: 100%;
+    }
+    &:after {
+      position: absolute;
+      top: 2%;
+      left: 2%;
+      bottom: 2%;
+      right: 2%;
+      background: white;
+    }
+    & > * {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+    div.icon-mask {
+      z-index: 10;
+      background: url('../img/icon-mask.png') center center no-repeat;
+      background-size: 100%;
+      pointer-events: none;
+    }
+    canvas {
+      z-index: 0;
+      background: white;
+    }
+  }
+}
+
+footer {
+  padding: 40px 20px 20px;
+}
