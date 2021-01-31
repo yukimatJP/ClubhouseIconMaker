@@ -36,29 +36,33 @@ section {
       padding-top: 100%;
     }
     &:after {
-      position: absolute;
-      top: 2%;
-      left: 2%;
-      bottom: 2%;
-      right: 2%;
+      content: "";
+      z-index: 0;
       background: white;
     }
-    & > * {
+    &:after,
+    canvas {
+      position: absolute;
+      top: 1%;
+      left: 1%;
+      bottom: 1%;
+      right: 1%;
+    }
+    div.icon-mask {
       position: absolute;
       top: 0;
       left: 0;
       bottom: 0;
       right: 0;
-    }
-    div.icon-mask {
       z-index: 10;
       background: url('../img/icon-mask.png') center center no-repeat;
       background-size: 100%;
       pointer-events: none;
     }
     canvas {
-      z-index: 0;
+      z-index: 1;
       background: white;
+      cursor: pointer;
     }
   }
 }
