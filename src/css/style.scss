@@ -57,7 +57,7 @@ section {
       background: white;
     }
     &:after,
-    canvas {
+    img {
       position: absolute;
       top: 1%;
       left: 1%;
@@ -75,12 +75,15 @@ section {
       background-size: 100%;
       pointer-events: none;
     }
-    canvas {
+    img {
       z-index: 1;
       background: white;
       cursor: pointer;
     }
     input[type='file'] {
+      display: none;
+    }
+    canvas {
       display: none;
     }
   }

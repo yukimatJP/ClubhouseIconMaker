@@ -17,7 +17,8 @@
   <section>
     <div class="preview-container" id="preview-container">
       <div class="icon-mask"></div>
-      <canvas id="preview" @click="pickImage()"　width=1000px height=1000px></canvas>
+      <img id="preview" @click="pickImage()">
+      <canvas id="canvas" width=1000px height=1000px></canvas>
       <input type="file" name="user-img" id="user-img">
     </div>
     <div class="setting-container">

@@ -7,6 +7,7 @@ var app = new Vue({
   data: {
     cw: 1000,
     ch: 1000,
+    preview: null,
     canvas: null,
     userImg: null,
     userImgSrc: null,
@@ -15,7 +16,8 @@ var app = new Vue({
     
   },
   mounted: function() {
-    this.canvas = $('preview');
+    this.preview = $('preview');
+    this.canvas = $('canvas');
     this.userImg = $('user-img');
     this.updateScreenSize();
   },
@@ -55,6 +57,7 @@ var app = new Vue({
       var x = (this.canvas.width / 2);
       var y = (this.canvas.height / 2);
       ctx.fillText(text, x, y);
+      this.preview.src = this.canvas.toDataURL();
     },
     pickImage() {
       $("user-img").click();
@@ -99,6 +102,7 @@ var app = new Vue({
       var y = (this.canvas.height * 0.9);
       ctx.strokeText(text, x, y);
       ctx.fillText(text, x, y);
+      this.preview.src = this.canvas.toDataURL();
     },
     changeText() {
       this.drawImage();
