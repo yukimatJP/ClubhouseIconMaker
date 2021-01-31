@@ -15,14 +15,14 @@
     <small>v0.1</small>
   </header>
   <section>
-    <div class="setting-container">
-      <input type="text" name="overlay-text" id="overlay-text">
-      <span class="btn-change-text" @click="changeText()">Change</span>
-    </div>
     <div class="preview-container" id="preview-container">
       <div class="icon-mask"></div>
       <canvas id="preview" @click="pickImage()"　width=1000px height=1000px></canvas>
       <input type="file" name="user-img" id="user-img">
+    </div>
+    <div class="setting-container">
+      <input type="text" name="overlay-text" id="overlay-text">
+      <span class="btn-change-text" @click="changeText()">Change</span>
     </div>
   </section>
   <footer>

@@ -79,7 +79,10 @@ var app = new Vue({
       var img = new Image();
       img.src = this.userImgSrc;
       img.onload = function() {
-        ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, 1000, 1000);
+        var ix = img.width > img.height ? (img.width - img.height) / 2 : 0;
+        var iy = img.width > img.height ? 0 : (img.height - img.width) / 2;
+        var size = Math.min(img.width, img.height);
+        ctx.drawImage(img, ix, iy, size, size, 0, 0, 1000, 1000);
         this.drawText();
       }.bind(this);
     },
