@@ -5,7 +5,7 @@
   <title>👋 Clubhouse Icon Maker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;900&family=Nunito:wght@400;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=0.1">
 </head>
 <body>
@@ -15,9 +15,14 @@
     <small>v0.1</small>
   </header>
   <section>
+    <div class="setting-container">
+      <input type="text" name="overlay-text" id="overlay-text">
+      <span class="btn-change-text" @click="changeText()">Change</span>
+    </div>
     <div class="preview-container" id="preview-container">
       <div class="icon-mask"></div>
       <canvas id="preview" @click="pickImage()"　width=1000px height=1000px></canvas>
+      <input type="file" name="user-img" id="user-img">
     </div>
   </section>
   <footer>
