@@ -92,7 +92,7 @@ var app = new Vue({
     drawText() {
       var ctx = this.canvas.getContext('2d');
       var text = $("overlay-text").value;
-      ctx.font = '800 100px "Nunito", "M PLUS Rounded 1c", sans-serif';
+      ctx.font = 'bold 100px "Nunito", "Kosugi Maru", sans-serif';
       ctx.fillStyle = '#404040';
       ctx.strokeStyle = '#ffffff';
       ctx.lineWidth = 15;
