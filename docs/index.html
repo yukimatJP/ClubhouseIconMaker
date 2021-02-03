@@ -22,13 +22,13 @@
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Nunito:wght@400;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=0.13">
+  <link rel="stylesheet" href="css/style.css?v=0.14">
 </head>
 <body>
 <div id="main" class="main">
   <header>
     <h1>👋 Clubhouse Icon Maker</h1>
-    <small>v0.13</small>
+    <small>v0.14</small>
   </header>
   <section>
     <div class="preview-container" id="preview-container">
@@ -45,6 +45,13 @@
           <li class="ic v-bottom" @click="changeTextVerticalAlign('bottom')"></li>
         </ul>
       </div>
+      <div class="text-option text-size ic" :class="textSizeClass" @click="showOptionSelector">
+        <ul class="selector">
+          <li class="ic size-small" @click="changeTextSize('small')"></li>
+          <li class="ic size-medium" @click="changeTextSize('medium')"></li>
+          <li class="ic size-large" @click="changeTextSize('large')"></li>
+        </ul>
+      </div>
       <textarea type="text" name="overlay-text" id="overlay-text" @keyup="adjustHeight"></textarea>
       <span class="btn-change-text" @click="changeText()">Change</span>
     </div>
@@ -54,6 +61,6 @@
   </footer>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
-<script type="text/javascript" src="js/chim.js?v=0.13"></script>
+<script type="text/javascript" src="js/chim.js?v=0.14"></script>
 </body>
 </html>

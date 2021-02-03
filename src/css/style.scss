@@ -30,6 +30,9 @@ section {
       &.v-top    { background: url("../img/ic-pos-top.png"); }
       &.v-middle { background: url("../img/ic-pos-middle.png"); }
       &.v-bottom { background: url("../img/ic-pos-bottom.png"); }
+      &.size-small  { background: url("../img/ic-size-small.png"); }
+      &.size-medium { background: url("../img/ic-size-medium.png"); }
+      &.size-large  { background: url("../img/ic-size-large.png"); }
       background-position: center center!important;
       background-repeat: no-repeat!important;
       background-size: 66%!important;

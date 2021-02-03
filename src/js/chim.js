@@ -12,6 +12,7 @@ var app = new Vue({
     userImg: null,
     userImgSrc: null,
     verticalAlignSetting: "middle",
+    textSizeSetting: "medium",
   },
   created: function() {
     
@@ -93,8 +94,13 @@ var app = new Vue({
     drawText() {
       var ctx = this.canvas.getContext('2d');
       var text = $("overlay-text").value;
-      var fontSize = 100;
-      var lineHeight = 1.2;
+      var fontSize;
+      switch(this.textSizeSetting) {
+        case "small":  fontSize = 70; break;
+        case "medium": fontSize = 100; break;
+        case "large":  fontSize = 130; break;
+      }
+      var lineHeight = 1.15;
       ctx.font = 'bold ' + fontSize + 'px "Nunito", "Kosugi Maru", sans-serif';
       ctx.fillStyle = '#404040';
       ctx.strokeStyle = '#ffffff';
@@ -105,15 +111,9 @@ var app = new Vue({
       var x = (this.canvas.width / 2);
       var y = 0;
       switch(this.verticalAlignSetting) {
-        case "top":
-          y = fontSize * lineHeight + 50;
-          break;
-        case "middle":
-          y = (this.canvas.height / 2 + 20 - (lines.length - 1) * fontSize * lineHeight / 2);
-          break;
-        case "bottom":
-          y = this.canvas.height - (lines.length * fontSize * lineHeight + 50);
-          break;
+        case "top":    y = fontSize * lineHeight + 50; break;
+        case "middle": y = (this.canvas.height / 2 + 20 - (lines.length - 1) * fontSize * lineHeight / 2); break;
+        case "bottom": y = this.canvas.height - (lines.length * fontSize * lineHeight + 50); break;
       }
       for(var i=0; i<lines.length; i++) {
         ctx.strokeText(lines[i], x, y);
@@ -135,10 +135,15 @@ var app = new Vue({
     changeTextVerticalAlign(mode) {
       this.verticalAlignSetting = mode;
       this.drawImage();
-    }
+    },
+    changeTextSize(mode) {
+      this.textSizeSetting = mode;
+      this.drawImage();
+    },
   },
   computed: {
-    textVerticalPositionClass: function() { return "v-" + this.verticalAlignSetting; }
+    textVerticalPositionClass: function() { return "v-" + this.verticalAlignSetting; },
+    textSizeClass: function() { return "size-" + this.textSizeSetting; }
   }
 });
 
