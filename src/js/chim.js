@@ -11,6 +11,7 @@ var app = new Vue({
     canvas: null,
     userImg: null,
     userImgSrc: null,
+    verticalAlignSetting: "middle",
   },
   created: function() {
     
@@ -98,12 +99,22 @@ var app = new Vue({
       ctx.fillStyle = '#404040';
       ctx.strokeStyle = '#ffffff';
       ctx.lineWidth = 15;
-      ctx.textBaseline = 'middle';
+      ctx.textBaseline = "middle";
       ctx.textAlign = 'center';
       var lines = text.split("\n");
-      console.log(lines.length);
       var x = (this.canvas.width / 2);
-      var y = (this.canvas.height / 2 + 20 - (lines.length - 1) * fontSize * lineHeight / 2);
+      var y = 0;
+      switch(this.verticalAlignSetting) {
+        case "top":
+          y = fontSize * lineHeight + 50;
+          break;
+        case "middle":
+          y = (this.canvas.height / 2 + 20 - (lines.length - 1) * fontSize * lineHeight / 2);
+          break;
+        case "bottom":
+          y = this.canvas.height - (lines.length * fontSize * lineHeight + 50);
+          break;
+      }
       for(var i=0; i<lines.length; i++) {
         ctx.strokeText(lines[i], x, y);
         ctx.fillText(lines[i], x, y);
@@ -113,13 +124,21 @@ var app = new Vue({
     },
     adjustHeight(e){
       e.target.style.height = Math.max(e.target.scrollHeight, e.target.clientHeight) + "px";
-      this.changeText();
+      this.drawImage();
     },
     changeText() {
+      this.drawImage();
+    },
+    showOptionSelector(e) {
+      e.target.classList.add("selecting");
+    },
+    changeTextVerticalAlign(mode) {
+      this.verticalAlignSetting = mode;
       this.drawImage();
     }
   },
   computed: {
+    textVerticalPositionClass: function() { return "v-" + this.verticalAlignSetting; }
   }
 });
 
