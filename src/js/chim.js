@@ -96,10 +96,10 @@ var app = new Vue({
       ctx.fillStyle = '#404040';
       ctx.strokeStyle = '#ffffff';
       ctx.lineWidth = 15;
-      ctx.textBaseline = 'bottom';
+      ctx.textBaseline = 'middle';
       ctx.textAlign = 'center';
       var x = (this.canvas.width / 2);
-      var y = (this.canvas.height * 0.85);
+      var y = (this.canvas.height / 2 + 20);
       ctx.strokeText(text, x, y);
       ctx.fillText(text, x, y);
       this.preview.src = this.canvas.toDataURL();
