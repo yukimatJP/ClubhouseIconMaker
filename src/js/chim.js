@@ -2,6 +2,10 @@ const $ = (id) => {
   return document.getElementById(id);
 }
 
+const $$ = (className) => {
+  return  document.getElementsByClassName(className);
+}
+
 var app = new Vue({
   el: '#main',
   data: {
@@ -130,7 +134,13 @@ var app = new Vue({
       this.drawImage();
     },
     showOptionSelector(e) {
-      e.target.classList.add("selecting");
+      this.hideAllOptionSelector();
+      if(e.target.classList.contains("text-option")) {
+        e.target.classList.add("selecting");
+      }
+    },
+    hideAllOptionSelector() {
+      Array.from($$("text-option")).forEach(e => e.classList.remove("selecting"));
     },
     changeTextVerticalAlign(mode) {
       this.verticalAlignSetting = mode;

@@ -22,30 +22,30 @@
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Nunito:wght@400;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=0.14">
+  <link rel="stylesheet" href="css/style.css?v=0.14.1">
 </head>
 <body>
-<div id="main" class="main">
+<div id="main" class="main" @click="hideAllOptionSelector()">
   <header>
     <h1>👋 Clubhouse Icon Maker</h1>
-    <small>v0.14</small>
+    <small>v0.14.1</small>
   </header>
   <section>
     <div class="preview-container" id="preview-container">
       <div class="icon-mask"></div>
-      <img id="preview" @click="pickImage()">
+      <img id="preview" @click.stop="pickImage()">
       <canvas id="canvas" width=1000px height=1000px></canvas>
       <input type="file" name="user-img" id="user-img">
     </div>
     <div class="setting-container">
-      <div class="text-option text-position ic" :class="textVerticalPositionClass" @click="showOptionSelector">
+      <div class="text-option text-position ic" :class="textVerticalPositionClass" @click.stop="showOptionSelector">
         <ul class="selector">
           <li class="ic v-top" @click="changeTextVerticalAlign('top')"></li>
           <li class="ic v-middle" @click="changeTextVerticalAlign('middle')"></li>
           <li class="ic v-bottom" @click="changeTextVerticalAlign('bottom')"></li>
         </ul>
       </div>
-      <div class="text-option text-size ic" :class="textSizeClass" @click="showOptionSelector">
+      <div class="text-option text-size ic" :class="textSizeClass" @click.stop="showOptionSelector">
         <ul class="selector">
           <li class="ic size-small" @click="changeTextSize('small')"></li>
           <li class="ic size-medium" @click="changeTextSize('medium')"></li>
@@ -61,6 +61,6 @@
   </footer>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
-<script type="text/javascript" src="js/chim.js?v=0.14"></script>
+<script type="text/javascript" src="js/chim.js?v=0.14.1"></script>
 </body>
 </html>
