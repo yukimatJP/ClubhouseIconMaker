@@ -92,17 +92,28 @@ var app = new Vue({
     drawText() {
       var ctx = this.canvas.getContext('2d');
       var text = $("overlay-text").value;
-      ctx.font = 'bold 100px "Nunito", "Kosugi Maru", sans-serif';
+      var fontSize = 100;
+      var lineHeight = 1.2;
+      ctx.font = 'bold ' + fontSize + 'px "Nunito", "Kosugi Maru", sans-serif';
       ctx.fillStyle = '#404040';
       ctx.strokeStyle = '#ffffff';
       ctx.lineWidth = 15;
       ctx.textBaseline = 'middle';
       ctx.textAlign = 'center';
+      var lines = text.split("\n");
+      console.log(lines.length);
       var x = (this.canvas.width / 2);
-      var y = (this.canvas.height / 2 + 20);
-      ctx.strokeText(text, x, y);
-      ctx.fillText(text, x, y);
+      var y = (this.canvas.height / 2 + 20 - (lines.length - 1) * fontSize * lineHeight / 2);
+      for(var i=0; i<lines.length; i++) {
+        ctx.strokeText(lines[i], x, y);
+        ctx.fillText(lines[i], x, y);
+        y += fontSize * lineHeight;
+      }
       this.preview.src = this.canvas.toDataURL();
+    },
+    adjustHeight(e){
+      e.target.style.height = Math.max(e.target.scrollHeight, e.target.clientHeight) + "px";
+      this.changeText();
     },
     changeText() {
       this.drawImage();

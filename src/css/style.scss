@@ -26,7 +26,7 @@ header {
 section {
   div.setting-container {
     padding: 20px;
-    input[type='text'],
+    textarea,
     span {
       display: inline-block;
       border: none;
@@ -36,8 +36,10 @@ section {
       padding: 10px;
       border-radius: 5px;
     }
-    input[type='text'] {
+    textarea {
       background: #e8e5d4;
+      width: 90%;
+      max-width: 360px;
     }
   }
   div.preview-container {
