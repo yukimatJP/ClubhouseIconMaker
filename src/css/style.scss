@@ -30,6 +30,8 @@ section {
     span {
       display: inline-block;
       border: none;
+      width: 90%;
+      max-width: 360px;
       height: 36px;
       line-height: 16px;
       font-size: 16px;
@@ -38,8 +40,9 @@ section {
     }
     textarea {
       background: #e8e5d4;
-      width: 90%;
-      max-width: 360px;
+    }
+    span {
+      cursor: pointer;
     }
   }
   div.preview-container {
